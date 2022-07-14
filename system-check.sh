@@ -56,7 +56,6 @@ next()
 system_info ()
 {
 	clear
-	print_logo
 	virtua=$(virt-what)
 	if [[ ${virtua} ]]; then
 		virt="$virtua"
@@ -107,7 +106,6 @@ system_info ()
 check_health ()
 {
 	clear
-	print_logo
 	echo "Disk(s) health"
 	next
 	echo > /scripts/bad-sector.txt
@@ -218,7 +216,6 @@ check_ceph ()
 check_raid ()
 {
 	clear
-	print_logo
 	echo "RAID check"
 	next
 	MDADM=`df -h | grep "/md" | wc -l`
@@ -313,7 +310,6 @@ fio_test()
 diskio_test ()
 {
 	clear
-	print_logo
 	echo "Disk IO speed test"
 	next
 	cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
@@ -334,7 +330,6 @@ speed_test()
 network_test ()
 {
 	clear
-	print_logo
 	echo "Network speed test"
 	next
 	case $1 in
@@ -387,7 +382,6 @@ network_test ()
 
 print_menu ()
 {
-	print_logo
 	echo -e "1) System info\t\t\t\t\t\t\t\t|"
 	echo -e "2) Check disk(s) health\t\t\t\t\t\t\t|"
 	echo -e "3) Check RAID (mdadm, zfs, ceph)\t\t\t\t\t|"
@@ -400,7 +394,6 @@ print_menu ()
 print_speedtest_menu ()
 {
 	clear
-	print_logo
 	echo "1) All"
 	echo "2) VNPT, Ha Noi, VN"
 	echo "3) VNPT, Ho Chi Minh, VN"
